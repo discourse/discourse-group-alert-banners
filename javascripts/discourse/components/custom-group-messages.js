@@ -23,6 +23,7 @@ export default Component.extend({
 
     settingParsed.forEach((setting) => {
       let groupNames = setting.group_name.split(", ");
+      let excludeNames = setting.group_exclude.split(", ");
 
       function arrayMatch(arr, arr2) {
         return arr.every((i) => arr2.includes(i));
@@ -33,7 +34,9 @@ export default Component.extend({
         .replace(/,/g, "-");
 
       if (arrayMatch(groupNames, userGroups)) {
-        allowedGroups.push(setting);
+        if (!arrayMatch(excludeNames, userGroups)) {
+          allowedGroups.push(setting);
+        }
       }
     });
 
