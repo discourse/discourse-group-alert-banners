@@ -1,0 +1,20 @@
+.custom-group-message-connector + #main-outlet {
+  padding-top: 1.25em;
+}
+
+.custom-group-message {
+  width: 100%;
+  background: var(--tertiary-low);
+  margin-top: 1em;
+  padding: 1em;
+  box-sizing: border-box;
+
+  .btn.btn-primary {
+    margin-top: 1em;
+  }
+}
+
+.custom-group-message-content {
+  display: block;
+  width: 100%;
+}

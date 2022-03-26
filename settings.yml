@@ -1,0 +1,4 @@
+nav_links:
+  default: >-
+    [{"group_name": "staff", "content": "this is content", "button_url":"/","button_text":"letsa go","button_icon":"reply"}]
+  json_schema: '{ "type": "array", "uniqueItems": true, "items": { "type": "object", "properties": { "group_name": { "type": "string", "minLength": 1 }, "content": { "type": "string", "format": "textarea", "minLength": 1 }, "button_url": { "type": "string", "minLength": 1 }, "button_text": { "type": "string" }, "button_icon": { "type": "string" }}, "additionalProperties": false } }'

@@ -1,0 +1,15 @@
+{{#each allowedGroups as |ag|}}
+  <div class="custom-group-message custom-group-message-{{ag.className}}">
+    <div class="custom-group-message-content">
+      {{html-safe ag.content}}
+    </div>
+    {{#if (and ag.button_url ag.button_text)}}
+      <a href="{{ag.button_url}}" class="btn btn-primary btn-text">
+        {{#if ag.button_icon}}
+          {{d-icon ag.button_icon}}
+        {{/if}}
+        {{ag.button_text}}
+      </a>
+    {{/if}}
+  </div>
+{{/each}}
