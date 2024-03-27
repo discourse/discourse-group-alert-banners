@@ -4,7 +4,7 @@
       {{html-safe ag.content}}
     </div>
     {{#if (and ag.button_url ag.button_text)}}
-      <a href="{{ag.button_url}}" class="btn btn-primary btn-text">
+      <a href={{ag.button_url}} class="btn btn-primary btn-text">
         {{#if ag.button_icon}}
           {{d-icon ag.button_icon}}
         {{/if}}
