@@ -1,4 +1,4 @@
-{{#each allowedGroups as |ag|}}
+{{#each this.allowedGroups as |ag|}}
   <div class="custom-group-message custom-group-message-{{ag.className}}">
     <div class="custom-group-message-content">
       {{html-safe ag.content}}
