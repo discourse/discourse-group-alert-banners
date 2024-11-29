@@ -1,12 +1,14 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
+import { tagName } from "@ember-decorators/component";
 import discourseComputed from "discourse-common/utils/decorators";
 
-export default Component.extend({
-  tagName: "",
-  settingParsed: computed(function () {
+@tagName("")
+export default class CustomGroupMessages extends Component {
+  @computed
+  get settingParsed() {
     return JSON.parse(settings.nav_links);
-  }),
+  }
 
   @discourseComputed("settingParsed", "currentUser")
   allowedGroups(settingParsed, user) {
@@ -41,5 +43,5 @@ export default Component.extend({
     });
 
     return allowedGroups;
-  },
-});
+  }
+}
