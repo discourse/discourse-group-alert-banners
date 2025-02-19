@@ -1,4 +1,50 @@
 nav_links:
-  default: >-
-    [{"group_name": "staff", "group_exclude": "", "content": "add your content here", "button_url":"/","button_text":"home","button_icon":"house"}]
-  json_schema: '{ "type": "array", "uniqueItems": true, "items": { "type": "object", "properties": { "group_name": { "type": "string", "minLength": 1 }, "group_exclude": { "type": "string" }, "content": { "type": "string", "format": "textarea", "minLength": 1 }, "button_url": { "type": "string"}, "button_text": { "type": "string" }, "button_icon": { "type": "string" }}, "additionalProperties": false } }'
+  type: objects
+  default:
+    - group_name: staff
+      group_exclude: ''
+      content: add your content here
+      button_url: /
+      button_text: home
+      button_icon: house
+  schema:
+    name: nav link
+    identifier: text
+    properties:
+        group_name:
+            type: string
+            required: true
+            validations:
+              min_length: 1
+              max_length: 1000
+        group_exclude:
+            type: string
+            required: true
+            validations:
+              min_length: 1
+              max_length: 1000
+        content:
+            type: string
+            required: true
+            validations:
+              min_length: 1
+              max_length: 1000
+        button_url:
+            type: string
+            required: true
+            validations:
+              min_length: 1
+              max_length: 2048
+              url: true
+        button_text:
+            type: string
+            required: true
+            validations:
+              min_length: 1
+              max_length: 1000
+        button_icon:
+            type: string
+            required: true
+            validations:
+              min_length: 1
+              max_length: 1000
