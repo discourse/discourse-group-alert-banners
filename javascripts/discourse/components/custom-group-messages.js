@@ -7,7 +7,7 @@ import discourseComputed from "discourse/lib/decorators";
 export default class CustomGroupMessages extends Component {
   @computed
   get settingParsed() {
-    return JSON.parse(settings.nav_links);
+    return settings.nav_links;
   }
 
   @discourseComputed("settingParsed", "currentUser")
