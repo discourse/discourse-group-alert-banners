@@ -1,6 +1,9 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
 import { tagName } from "@ember-decorators/component";
+import { and } from "truth-helpers";
+import icon from "discourse/helpers/d-icon";
+import htmlSafe from "discourse/helpers/html-safe";
 import discourseComputed from "discourse/lib/decorators";
 
 @tagName("")
@@ -44,4 +47,22 @@ export default class CustomGroupMessages extends Component {
 
     return allowedGroups;
   }
+
+  <template>
+    {{#each this.allowedGroups as |ag|}}
+      <div class="custom-group-message custom-group-message-{{ag.className}}">
+        <div class="custom-group-message-content">
+          {{htmlSafe ag.content}}
+        </div>
+        {{#if (and ag.button_url ag.button_text)}}
+          <a href={{ag.button_url}} class="btn btn-primary btn-text">
+            {{#if ag.button_icon}}
+              {{icon ag.button_icon}}
+            {{/if}}
+            {{ag.button_text}}
+          </a>
+        {{/if}}
+      </div>
+    {{/each}}
+  </template>
 }
