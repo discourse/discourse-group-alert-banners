@@ -1,9 +1,9 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
+import { htmlSafe } from "@ember/template";
 import { tagName } from "@ember-decorators/component";
 import { and } from "truth-helpers";
 import icon from "discourse/helpers/d-icon";
-import htmlSafe from "discourse/helpers/html-safe";
 import discourseComputed from "discourse/lib/decorators";
 
 @tagName("")
