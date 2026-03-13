@@ -1,10 +1,10 @@
+/* eslint-disable ember/no-classic-components */
 import Component from "@ember/component";
 import { computed } from "@ember/object";
 import { htmlSafe } from "@ember/template";
 import { tagName } from "@ember-decorators/component";
-import { and } from "truth-helpers";
 import icon from "discourse/helpers/d-icon";
-import discourseComputed from "discourse/lib/decorators";
+import { and } from "discourse/truth-helpers";
 
 @tagName("")
 export default class CustomGroupMessages extends Component {
@@ -13,20 +13,20 @@ export default class CustomGroupMessages extends Component {
     return settings.nav_links;
   }
 
-  @discourseComputed("settingParsed", "currentUser")
-  allowedGroups(settingParsed, user) {
-    if (!user) {
+  @computed("settingParsed", "currentUser")
+  get allowedGroups() {
+    if (!this.currentUser) {
       return;
     }
 
     let userGroups = [];
     let allowedGroups = [];
 
-    user.groups.forEach((group) => {
+    this.currentUser.groups.forEach((group) => {
       userGroups.push(group.name);
     });
 
-    settingParsed.forEach((setting) => {
+    this.settingParsed.forEach((setting) => {
       let groupNames = setting.group_name.split(", ");
       let excludeNames = setting.group_exclude.split(", ");
 
